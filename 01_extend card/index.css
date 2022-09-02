@@ -1,0 +1,47 @@
+* {
+  /* box-sizing: props 默认值 content-box 使UA在计算width、height 的时候不包含border */
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  /* 定义了浏览器之间，如何分配顺着弹性容器主轴 (或者网格行轴) 的元素之间及其周围的空间。 */
+  justify-content: center;
+  height: 100vh;
+  /* overflow 定义了当元素内容太大超出 BFC 的时候该做什么; */
+  overflow: hidden;
+  margin: 0;
+}
+.container {
+  display: flex;
+  width: 50vw;
+}
+.panel {
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  border-radius: 50px;
+  color: white;
+  /* 设置光标的类型（如果有），在鼠标指针悬停在元素上时显示相应样式。 */
+  cursor: pointer;
+  /* 置了弹性项目如何增大或缩小以适应其弹性容器中可用的空间。 */
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: all 0.7s ease-in;
+}
+.panel h3{
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    margin: 0;
+    opacity: 0;
+}
+.panel.active{
+    flex: 5;
+}
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4;
+}
